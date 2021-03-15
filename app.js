@@ -159,7 +159,7 @@ app.all('*', (req, res, next) => {
 app.use((err, req, res, next) => {
     const { status = 500 } = err;
     if(!err.message) err.message = 'Oh no! Something went wrong!'
-    res.status(status).render('error', { err })
+    res.status(status).render('error', { err, async: true })
 })
 
 const port = process.env.PORT || 3000;
